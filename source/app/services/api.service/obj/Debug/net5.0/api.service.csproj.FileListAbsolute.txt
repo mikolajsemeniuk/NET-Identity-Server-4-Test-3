@@ -37,3 +37,7 @@
 /Users/mikolajsemeniuk/Projects/C#/NET-Identity-Server-4/source/app/services/api.service/obj/Debug/net5.0/ref/api.service.dll
 /Users/mikolajsemeniuk/Projects/C#/NET-Identity-Server-4/source/app/services/api.service/obj/Debug/net5.0/api.service.pdb
 /Users/mikolajsemeniuk/Projects/C#/NET-Identity-Server-4/source/app/services/api.service/obj/Debug/net5.0/api.service.genruntimeconfig.cache
+/Users/mikolajsemeniuk/Projects/C#/NET-Identity-Server-4/source/app/services/api.service/bin/Debug/net5.0/IdentityModel.dll
+/Users/mikolajsemeniuk/Projects/C#/NET-Identity-Server-4/source/app/services/api.service/bin/Debug/net5.0/IdentityModel.AspNetCore.OAuth2Introspection.dll
+/Users/mikolajsemeniuk/Projects/C#/NET-Identity-Server-4/source/app/services/api.service/bin/Debug/net5.0/IdentityServer4.AccessTokenValidation.dll
+/Users/mikolajsemeniuk/Projects/C#/NET-Identity-Server-4/source/app/services/api.service/bin/Debug/net5.0/Newtonsoft.Json.dll

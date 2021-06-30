@@ -16,10 +16,12 @@ namespace IdentityServer
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentityServer()
+            // https://localhost:5001/.well-known/openid-configuration
+            services
+                .AddIdentityServer()
                 .AddDeveloperSigningCredential()
-                .AddInMemoryApiScopes(Config.ApiResources())
-                .AddInMemoryClients(Config.Clients());
+                .AddInMemoryClients(Config.Clients)
+                .AddInMemoryApiScopes(Config.ApiScopes);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

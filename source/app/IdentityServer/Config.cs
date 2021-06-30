@@ -6,13 +6,13 @@ namespace IdentityServer
 {
     public class Config
     {
-        internal static IEnumerable<ApiScope> ApiResources() =>
+        internal static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope>
             {
                 new ApiScope("api1", "My API")
             };
 
-        internal static IEnumerable<Client> Clients() =>
+        internal static IEnumerable<Client> Clients =>
             new List<Client>
             {
                 new Client

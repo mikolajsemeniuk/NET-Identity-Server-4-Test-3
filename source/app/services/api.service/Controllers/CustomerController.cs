@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using api.service.Inputs;
 using api.service.Interfaces;
 using api.service.Payloads;
+using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -12,6 +14,8 @@ namespace api.service.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
+    // [Authorize("ClientIDPolicy")]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerRepository _repository;

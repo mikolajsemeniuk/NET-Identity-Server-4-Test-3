@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.service.Data;
 using api.service.Interfaces;
 using api.service.Repositories;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 namespace api.service
@@ -31,8 +33,26 @@ namespace api.service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+
             services.AddDbContext<DataContext>(options =>
                 options.UseInMemoryDatabase("Data"));
+
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "https://localhost:5001";
+
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+                });
+
+            // Adding policy based on claims
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ClientIDPolicy", policy => policy.RequireClaim("client_id", "movieClient"));
+            });
 
             services.AddControllers();
 
@@ -53,6 +73,8 @@ namespace api.service
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
