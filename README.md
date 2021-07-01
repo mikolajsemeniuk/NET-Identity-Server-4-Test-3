@@ -14,5 +14,9 @@ dotnet sln add source/app/IdentityServer
 dotnet new xunit -o source/tests
 dotnet sln add source/tests
 
+dotnet new webapi -o source/app/services/client.service
+dotnet sln add source/app/services/client.service
+
 # http://localhost:5000/.well-known/openid-configuration
+# https://localhost:5001/connect/token
 ```
